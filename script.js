@@ -8,8 +8,7 @@ function Book(title, author, isRead) {
 
 
 
-//overwriting each book, and not showing in console log. work out how to
-//get it to loop thru.
+//looping thru but adding every book each time
 
 document.querySelector("#submitBtn").addEventListener('click', function(){
 
@@ -23,13 +22,13 @@ document.querySelector("#submitBtn").addEventListener('click', function(){
     
     document.getElementById('bookForm').style.display = "none";
 
-    function displayInShelf() {
-        document.getElementById("shelf").innerHTML = 
-        '<div>' + title + ", " + author + '</div>'
-    };
+    for (let i = 0; i < myLibrary.length; i++) 
+    { let text = document.createElement('div') 
+    text.innerHTML = myLibrary[i] 
+    let shelf = document.getElementById("shelf"); 
+    shelf.appendChild(text); };
 
-    myLibrary.forEach(displayInShelf(Book));
-    console.log(Book)
+    console.log(myLibrary)
     
 });
 
