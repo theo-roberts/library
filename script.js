@@ -1,35 +1,44 @@
 const myLibrary = [];
 
-function Book(title, author, isRead) {
+function Book(title, author, isRead, bookID) {
     this.title = title;
     this.author = author;
     this.isRead = isRead;
+    this.bookID = bookID;
 };
 
+let counter = 0
 
-
-//looping thru but adding every book each time
+//work out how to add the checkbox to the display.
 
 document.querySelector("#submitBtn").addEventListener('click', function(){
 
-    title = document.getElementById("bookTitle").value;
-    author = document.getElementById("bookAuthor").value;
-    isRead = document.getElementById("isRead").value;
-    newBook = new Book(title, author, isRead)
+        document.getElementById('bookForm').style.display = "none";
 
-    myLibrary.push(newBook)
-    event.preventDefault()
-    
-    document.getElementById('bookForm').style.display = "none";
+        title = document.getElementById("bookTitle").value;
+        author = document.getElementById("bookAuthor").value;
+        isRead = document.getElementById("isRead").value;
+        bookID = counter;
+        newBook = new Book(title, author, isRead, bookID)
 
-    for (let i = 0; i < myLibrary.length; i++) 
-    { let text = document.createElement('div') 
-    text.innerHTML = myLibrary[i] 
-    let shelf = document.getElementById("shelf"); 
-    shelf.appendChild(text); };
+        myLibrary.push(newBook)
 
-    console.log(myLibrary)
-    
+        function displayInShelf() {
+            let bookContainer = document.createElement('div');
+            let bookChild = document.createElement('div');
+            let text = document.createTextNode(myLibrary[i].title + ", " + myLibrary[i].author)
+            bookChild.appendChild(text);
+            bookContainer.appendChild(bookChild)
+            document.getElementById("shelf").appendChild(bookContainer)
+        };
+
+        for (i=counter; i<myLibrary.length; i++){
+        displayInShelf(Book)
+        };
+
+        counter++
+        event.preventDefault()
+    console.log(isRead)
 });
 
 
