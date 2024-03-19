@@ -23,6 +23,8 @@ document.querySelector("#submitBtn").addEventListener('click', function(){
 
     function displayInShelf() {
         let bookContainer = document.createElement('div');
+        bookContainer.setAttribute("class", "book")
+        bookContainer.setAttribute("id", counter)
                 
         let bookTitle = document.createElement('div');
         bookTitle.setAttribute("class", "bookTitle"); 
