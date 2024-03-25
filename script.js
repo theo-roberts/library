@@ -44,6 +44,7 @@ document.querySelector("#submitBtn").addEventListener('click', function(){
 
         let dltBtn = document.createElement('button');
         dltBtn.setAttribute("class", "dltBtn");
+        dltBtn.setAttribute("id", counter)
         let dltBtnText = document.createTextNode("Delete");
         dltBtn.appendChild(dltBtnText);
     
@@ -60,8 +61,6 @@ document.querySelector("#submitBtn").addEventListener('click', function(){
         displayInShelf(Book)
     };
 
-    document.querySelector(".dltBtn").addEventListener('click', deleteBook)
-
     counter++
 
     event.preventDefault()
@@ -69,14 +68,18 @@ document.querySelector("#submitBtn").addEventListener('click', function(){
     console.log(myLibrary)
 });
 
-//work out how to get to remove by bookID. the button needs to take the value of the
-//book that it is located within. maybe add an id to each button
+//working but the function is firing without the click. cos the brackets. dont know how
+//to get around this
 
-function deleteBook(bookID){
-    delete myLibrary[bookID]
-    let bookToDelete = document.getElementById(bookID)
-    bookToDelete.remove()
+dltBtn.setAttribute("onclick", deleteBook(this.id))
+
+function deleteBook(ID){
+    delete myLibrary[ID]
+    console.log(ID)
 }
+
+
+
 
 document.getElementById('newBookBtn').addEventListener('click', function(){
     document.getElementById('bookForm').style.display = "block";
