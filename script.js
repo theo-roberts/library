@@ -6,7 +6,7 @@ function Book(title, author, bookID) {
     this.bookID = bookID;
 };
 
-let counter = 0
+let counter = 0;
 
 document.querySelector("#submitBtn").addEventListener('click', function(){
 
@@ -46,6 +46,7 @@ document.querySelector("#submitBtn").addEventListener('click', function(){
         dltBtn.setAttribute("class", "dltBtn");
         dltBtn.setAttribute("id", counter)
         let dltBtnText = document.createTextNode("Delete");
+        dltBtn.setAttribute("onclick", "deleteBook(this.id)");
         dltBtn.appendChild(dltBtnText);
     
         bookContainer.appendChild(bookTitle);
@@ -55,31 +56,28 @@ document.querySelector("#submitBtn").addEventListener('click', function(){
         bookContainer.appendChild(dltBtn);
     
         document.getElementById("shelf").appendChild(bookContainer)
+
     };
 
     for (i=counter; i<myLibrary.length; i++){
         displayInShelf(Book)
     };
 
-    counter++
+    console.log(myLibrary);
+    counter++;
 
-    event.preventDefault()
+    event.preventDefault();
 
-    console.log(myLibrary)
 });
-
-//working but the function is firing without the click. cos the brackets. dont know how
-//to get around this
-
-dltBtn.setAttribute("onclick", deleteBook(this.id))
 
 function deleteBook(ID){
     delete myLibrary[ID]
-    console.log(ID)
-}
-
-
-
+    console.log(myLibrary);
+    console.log(ID);
+    let bookToRemove = document.getElementById(ID);
+    bookToRemove.remove();
+};
+    
 
 document.getElementById('newBookBtn').addEventListener('click', function(){
     document.getElementById('bookForm').style.display = "block";
