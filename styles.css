@@ -1,7 +1,64 @@
-#shelf{
-    display: grid;
+body{
+    width: 100%;
+    display: inline-grid;
+    grid-template: auto /  15% 70% 15%;
+    grid-template-areas:
+        " . title ."
+        ". newBookBtn ."
+        ". bookForm ."
+        ". shelf .";
 }
 
+.title{
+    position: sticky;
+    grid-area: title;
+    align-content: center;
+    margin: auto;
+    margin-bottom: 10px;
+    font-size: 50px;
+}
+
+#newBookBtn{
+    grid-area: newBookBtn;
+    position: sticky;
+    margin: auto;
+    font-size: 20px;
+    margin-bottom: 10px;
+    z-index: 99;
+}
+
+
 #bookForm{
-    display: none;
+    display: flex;
+    visibility: hidden;
+    justify-content: center;
+    align-items: center;
+    grid-area: bookForm;
+    z-index: 999;
+    margin-bottom: 10px;
+}
+
+
+#shelf{
+    display: grid;
+    margin: auto;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, 25%);
+    row-gap: 100px;
+    grid-area: shelf;
+}
+
+.book{
+    width: fit-content;
+    margin:auto;
+}
+
+
+input[type=text]{
+    margin: 8px 0;
+}
+
+#submitBtn{
+    width: 75px;
+    margin-top: 5px;
 }

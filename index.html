@@ -7,21 +7,20 @@
     <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-    <button id="newBookBtn">New Book</button>
-    <div id="bookForm">
-        <form>
-          <h1>New Book</h1>
+  <div class= 'title'>Bookshelf</div>
+  <button id="newBookBtn" onclick="openForm()">New Book</button>
+  <div id="bookForm">
+      <form>
+        <label for="bookTitle"><b>Name</b></label>
+        <input type="text" name="bookTitle" id="bookTitle">
       
-          <label for="bookTitle"><b>Name</b></label>
-          <input type="text" name="bookTitle" id="bookTitle">
-      
-          <label for="bookAuthor"><b>Author</b></label>
-          <input type="text" name="bookAuthor" id="bookAuthor">
+        <label for="bookAuthor"><b>Author</b></label>
+        <input type="text" name="bookAuthor" id="bookAuthor">
 
-          <button type="submit" id="submitBtn">Add Book</button>
-        </form>
-      </div>
-      <div id="shelf"></div>
+        <button type="submit" id="submitBtn" onclick="closeForm()">Add Book</button>
+      </form>
+    </div>
+  <div id="shelf"></div>
 </body>
 <script src="script.js"></script>
 </html>

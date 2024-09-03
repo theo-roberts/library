@@ -8,9 +8,9 @@ function Book(title, author, bookID) {
 
 let counter = 0;
 
-document.querySelector("#submitBtn").addEventListener('click', function(){
 
-    document.getElementById('bookForm').style.display = "none";
+
+document.querySelector("#submitBtn").addEventListener('click', function(){
 
     title = document.getElementById("bookTitle").value;
     author = document.getElementById("bookAuthor").value;
@@ -45,7 +45,7 @@ document.querySelector("#submitBtn").addEventListener('click', function(){
         let dltBtn = document.createElement('button');
         dltBtn.setAttribute("class", "dltBtn");
         dltBtn.setAttribute("id", counter)
-        let dltBtnText = document.createTextNode("Delete");
+        let dltBtnText = document.createTextNode("X");
         dltBtn.setAttribute("onclick", "deleteBook(this.id)");
         dltBtn.appendChild(dltBtnText);
     
@@ -70,16 +70,22 @@ document.querySelector("#submitBtn").addEventListener('click', function(){
 
 });
 
-function deleteBook(ID){
-    delete myLibrary[ID]
+function deleteBook(booknumber){
+    delete myLibrary[booknumber]
     console.log(myLibrary);
-    console.log(ID);
-    let bookToRemove = document.getElementById(ID);
+    console.log(booknumber);
+    let bookToRemove = document.getElementById(booknumber);
     bookToRemove.remove();
 };
     
 
-document.getElementById('newBookBtn').addEventListener('click', function(){
-    document.getElementById('bookForm').style.display = "block";
-});
+
+
+function openForm() {
+    document.getElementById('bookForm').style.visibility = "visible";
+}
+
+function closeForm() {
+    document.getElementById('bookForm').style.visibility = "hidden";
+  }
 
